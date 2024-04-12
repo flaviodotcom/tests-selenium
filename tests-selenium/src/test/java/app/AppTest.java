@@ -1,4 +1,4 @@
-package selenium;
+package app;
 
 import static org.junit.Assert.assertTrue;
 
