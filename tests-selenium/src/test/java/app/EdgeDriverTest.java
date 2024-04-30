@@ -1,20 +1,25 @@
 package app;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import page.GooglePO;
 
 import static org.junit.Assert.assertTrue;
 
 public class EdgeDriverTest extends BaseTest {
 
+    private static GooglePO googlePage;
+
+    @BeforeClass
+    public static void prepararTestes() {
+        googlePage = new GooglePO(driver);
+    }
+
     @Test
     public void deveFazerPesquisaNoGoogle() {
-        WebElement inputGoogle = driver.findElement(By.id("APjFqb"));
-        inputGoogle.sendKeys("teste" + Keys.ENTER);
-
-        String result = driver.findElement(By.id("result-stats")).getText();
+        googlePage.inputPesquisa.sendKeys("teste" + Keys.ENTER);
+        String result = googlePage.divResultadoPesquisa.getText();
         assertTrue(result, result.contains("Aproximadamente"));
     }
 
