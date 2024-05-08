@@ -12,6 +12,7 @@ public class EdgeDriverTest extends BaseTest {
 
     @BeforeClass
     public static void prepararTestes() {
+        driver.get(GOOGLE_LINK);
         googlePage = new GooglePO(driver);
     }
 
