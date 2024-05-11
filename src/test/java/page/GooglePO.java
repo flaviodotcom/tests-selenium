@@ -9,8 +9,8 @@ public class GooglePO extends BasePO {
 
     @FindBy(id = "APjFqb")
     public WebElement inputPesquisa;
-    @FindBy(id = "result-stats")
-    public WebElement divResultadoPesquisa;
+    @FindBy(xpath = "//*[@id=\"hdtb-sc\"]/div/div/div[1]/div/div[1]/span/div")
+    public WebElement divTodas;
 
     /**
      * Construtor de BasePO.
@@ -32,7 +32,7 @@ public class GooglePO extends BasePO {
     /**
      * Método que retorna o resultado da pesquisa.
      **/
-    public String obterResultadoPesquisa() {
-        return divResultadoPesquisa.getText();
+    public String obterAbaTodasNoResultadoDaPesquisa() {
+        return divTodas.getText();
     }
 }

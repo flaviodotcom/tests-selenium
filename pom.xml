@@ -29,13 +29,13 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-edge-driver</artifactId>
-      <version>4.19.1</version>
+      <version>4.20.0</version>
     </dependency>
     <!-- Dependência de ferramentas de suporte para selenium -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-support</artifactId>
-      <version>4.19.1</version>
+      <version>4.20.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

@@ -4,7 +4,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import page.GooglePO;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class EdgeDriverTest extends BaseTest {
 
@@ -19,8 +19,8 @@ public class EdgeDriverTest extends BaseTest {
     @Test
     public void deveFazerPesquisaNoGoogle() {
         googlePage.pesquisar("teste");
-        String result = googlePage.obterResultadoPesquisa();
-        assertTrue(result, result.contains("Aproximadamente"));
+        String result = googlePage.obterAbaTodasNoResultadoDaPesquisa();
+        assertEquals(result, "Todas", result);
     }
 
 }
