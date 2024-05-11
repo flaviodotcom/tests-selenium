@@ -28,7 +28,7 @@
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-edge-driver</artifactId>
+      <artifactId>selenium-java</artifactId>
       <version>4.20.0</version>
     </dependency>
     <!-- Dependência de ferramentas de suporte para selenium -->
@@ -36,6 +36,13 @@
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-support</artifactId>
       <version>4.20.0</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Dependência que usa WebDriver gerenciado -->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.8.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

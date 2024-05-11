@@ -1,22 +1,23 @@
 package app;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 
 import java.io.File;
 
 public abstract class BaseTest {
     protected static WebDriver driver;
     protected static final String GOOGLE_LINK = "https://www.google.com";
-    private static final String PATH = "src/resources/msedgedriver.exe";
     private static final String PAGINA_LOGIN = "src/resources/templates/login.html";
+    private static final WebDriverManager wdm = WebDriverManager.edgedriver().browserInDocker()
+            .dockerDefaultArgs("--disable-gpu,--no-sandbox")
+            .browserVersion("latest");
 
     @BeforeClass
     public static void init() {
-        System.setProperty("webdriver.edge.driver", PATH);
-        driver = new EdgeDriver();
+        driver = wdm.create();
         driver.manage().window().maximize();
         driver.get(paginaLogin());
     }
