@@ -32,4 +32,14 @@ public class LoginPO extends BasePO {
     public String obterMensagem() {
         return this.spanMensagem.getText();
     }
+
+    public void efetuarLogin(String email, String senha) {
+        inputEmail.sendKeys(email);
+        inputSenha.sendKeys(senha);
+        buttonEntrar.click();
+    }
+
+    public String getTituloPagina() {
+        return driver.getTitle();
+    }
 }
