@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest {
     public void t001_naoDeveLogarComCamposVazios() {
         loginPage.efetuarLogin("", "");
 
-        String mensagem = loginPage.obterMensagem();
+        String mensagem = loginPage.getMensagem();
         assertEquals(mensagem, "Informe usuário e senha, os campos não podem ser brancos.");
     }
 

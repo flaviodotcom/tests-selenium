@@ -20,6 +20,12 @@ public abstract class BasePO {
     protected BasePO(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
 
+    /**
+     * Obtém título da página.
+    **/
+    public String getTituloPagina() {
+        return driver.getTitle();
     }
 }

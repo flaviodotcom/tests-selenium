@@ -29,7 +29,7 @@ public class LoginPO extends BasePO {
         super(driver);
     }
 
-    public String obterMensagem() {
+    public String getMensagem() {
         return this.spanMensagem.getText();
     }
 
@@ -39,7 +39,4 @@ public class LoginPO extends BasePO {
         buttonEntrar.click();
     }
 
-    public String getTituloPagina() {
-        return driver.getTitle();
-    }
 }
