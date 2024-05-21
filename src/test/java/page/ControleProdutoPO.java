@@ -15,6 +15,30 @@ public class ControleProdutoPO extends BasePO {
     @FindBy(css = "div>h4.modal-title")
     public WebElement tituloModal;
 
+    @FindBy(id = "codigo")
+    public WebElement codigoModal;
+
+    @FindBy(id = "nome")
+    public WebElement nomeModal;
+
+    @FindBy(id = "quantidade")
+    public WebElement quantidadeModal;
+
+    @FindBy(id = "valor")
+    public WebElement valorModal;
+
+    @FindBy(id = "data")
+    public WebElement dataModal;
+
+    @FindBy(id = "btn-salvar")
+    public WebElement buttonSalvarModal;
+
+    @FindBy(id = "btn-sair")
+    public WebElement buttonSairModal;
+
+    @FindBy(css = "div.modal-body>div.alert-danger>span")
+    public WebElement mensagemErroModal;
+
     /**
      * Construtor de BasePO.
      * @param driver Driver do navegador atual.
