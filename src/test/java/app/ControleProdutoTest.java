@@ -1,11 +1,10 @@
 package app;
 
+import builder.ProdutoBuilder;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import page.ControleProdutoPO;
 import page.LoginPO;
 
@@ -50,17 +49,28 @@ public class ControleProdutoTest extends BaseTest {
     @Test
     public void t003_deveCadastrarProdutoComTodosOsCamposPreenchidos() {
         entrarModal();
-        entrarModal();
-        this.cadastrarProduto("001", "Cubo mágico", 1, 19.99, dataAtual());
-
-        // @TODO melhorar a lógica do teste.
-        String mensagemDeErro = produtoPage.mensagemErroModal.getText();
-        assertFalse(mensagemDeErro, mensagemDeErro.contains("Todos os campos são obrigatórios"));
+        produtoPage.cadastrarProduto("001", "Cubo mágico", 1, 19.99, dataAtual());
         sairModal();
+
+        assertFalse(produtoPage.trProdutoCadastrado.getText().isEmpty());
     }
 
     @Test
-    public void t004_deveVoltarParaPaginaDeLogin() {
+    public void t004_deveCadastrarProdutoPassandoAlgunsCamposComoPadrao() {
+        entrarModal();
+        ProdutoBuilder criarProduto = new ProdutoBuilder(produtoPage);
+        criarProduto
+                .addNome("Caneta")
+                .addCodigo("002")
+                .addValor(1.50)
+                .builder();
+        sairModal();
+
+        assertTrue(produtoPage.trProdutoCadastrado.getText().contains("Caneta"));
+    }
+
+    @Test
+    public void t005_deveVoltarParaPaginaDeLogin() {
         produtoPage.linkVoltar.click();
 
         String tituloPagina = loginPage.getTituloPagina();
@@ -73,26 +83,6 @@ public class ControleProdutoTest extends BaseTest {
 
     public void sairModal() {
         produtoPage.buttonSairModal.click();
-    }
-
-    private void cadastrarProduto(String codigo, String nome, Integer quantidade, Double valor, String data) {
-        escrever(produtoPage.codigoModal, codigo);
-        escrever(produtoPage.nomeModal, nome);
-        escrever(produtoPage.quantidadeModal, quantidade.toString());
-        escrever(produtoPage.valorModal, valor.toString());
-        escrever(produtoPage.dataModal, data);
-
-        produtoPage.buttonSalvarModal.click();
-    }
-
-    /**
-     * Escreve o valor desejado no campo de input.
-     * @param input - campo de input do elemento web
-     * @param valor - valor que será escrito no input
-     **/
-    private void escrever(WebElement input, String valor) {
-        input.clear();
-        input.sendKeys(valor, Keys.TAB);
     }
 
 }
