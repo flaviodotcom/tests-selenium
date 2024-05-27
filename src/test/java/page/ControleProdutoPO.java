@@ -61,6 +61,10 @@ public class ControleProdutoPO extends BasePO {
         input.sendKeys(valor, Keys.TAB);
     }
 
+    /**
+     * Cadastra um produto passando os valores como parametro.
+     * O método builder de ProdutoBuilder é uma forma alternativa de fazer essa função.
+     * */
     public void cadastrarProduto(String codigo, String nome, Integer quantidade, Double valor, String data) {
         escrever(codigoModal, codigo);
         escrever(nomeModal, nome);

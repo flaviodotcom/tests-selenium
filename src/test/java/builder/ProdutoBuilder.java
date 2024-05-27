@@ -3,13 +3,14 @@ package builder;
 import page.ControleProdutoPO;
 
 import static utils.AppUtils.dataAtual;
+import static utils.AppUtils.formatarString;
 
 public class ProdutoBuilder {
-    public String codigo = "0001";
-    public String nome = "Cubo Mágico";
-    public Integer quantidade = 1;
-    public Double valor = 19.99;
-    public String data = dataAtual();
+    private String codigo = "0001";
+    private String nome = "Cubo Mágico";
+    private Integer quantidade = 1;
+    private Double valor = 19.99;
+    private String data = dataAtual();
 
     private final ControleProdutoPO produto;
 
@@ -47,11 +48,11 @@ public class ProdutoBuilder {
      * Utilizando o design pattern Builder para preencher os campos do produto a ser cadastrado.
      **/
     public void builder() {
-        produto.escrever(produto.codigoModal, codigo);
-        produto.escrever(produto.nomeModal, nome);
-        produto.escrever(produto.quantidadeModal, quantidade.toString());
-        produto.escrever(produto.valorModal, valor.toString());
-        produto.escrever(produto.dataModal, data);
+        produto.escrever(produto.codigoModal, formatarString(codigo));
+        produto.escrever(produto.nomeModal, formatarString(nome));
+        produto.escrever(produto.quantidadeModal, formatarString(String.valueOf(quantidade)));
+        produto.escrever(produto.valorModal, formatarString(String.valueOf(valor)));
+        produto.escrever(produto.dataModal, formatarString(data));
 
         produto.buttonSalvarModal.click();
     }

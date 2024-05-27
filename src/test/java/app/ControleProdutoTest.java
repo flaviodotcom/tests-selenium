@@ -70,7 +70,25 @@ public class ControleProdutoTest extends BaseTest {
     }
 
     @Test
-    public void t005_deveVoltarParaPaginaDeLogin() {
+    public void t005_naoDeveCadastrarProdutoPassandoValoresNulos() {
+        entrarModal();
+        ProdutoBuilder criarProduto = new ProdutoBuilder(produtoPage);
+        criarProduto
+                .addNome(null)
+                .addCodigo("005")
+                .addValor(10.65)
+                .addData(null)
+                .addQuantididade(null)
+                .builder();
+
+        String mensagemDeErro = produtoPage.mensagemErroModal.getText();
+        assertTrue(mensagemDeErro, mensagemDeErro.contains("Todos os campos são obrigatórios"));
+
+        sairModal();
+    }
+
+    @Test
+    public void t100_deveVoltarParaPaginaDeLogin() {
         produtoPage.linkVoltar.click();
 
         String tituloPagina = loginPage.getTituloPagina();
