@@ -13,7 +13,6 @@ import static utils.AppUtils.dataAtual;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ControleProdutoTest extends BaseTest {
-// TODO: Os botões de entrar e sair do modal precisam ser clicados duas vezes.
 
     private static LoginPO loginPage;
     private static ControleProdutoPO produtoPage;
@@ -28,12 +27,10 @@ public class ControleProdutoTest extends BaseTest {
     @Test
     public void t001_deveAbrirModalAoClicarNoBotao() {
         entrarModal();
-        produtoPage.buttonAdicionar.click(); // refatorar refs @TODO
         String titulo = produtoPage.tituloModal.getText();
 
         assertEquals("Produto", titulo);
         sairModal();
-        produtoPage.buttonSairModal.click(); // refatorar refs @TODO
     }
 
     @Test

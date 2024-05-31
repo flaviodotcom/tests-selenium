@@ -1,5 +1,5 @@
 
-function mostarAlerta(mensagem){
+function exibirAlerta(mensagem){
     document.querySelector("#mensagem").textContent = mensagem;
     document.querySelector("div.alert.alert-danger").classList.remove("esconder")
 }

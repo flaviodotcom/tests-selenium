@@ -11,11 +11,11 @@ form.btnEntrar.addEventListener('click', (e) =>{
     var senha = form.senha.value;
 
     if(!email || !senha){
-        mostarAlerta("Informe usuário e senha, os campos não podem ser brancos.");
+        exibirAlerta("Informe usuário e senha, os campos não podem ser brancos.");
         return;
-    }else if(email.toLowerCase() != usuarioValido.email || 
-             senha != usuarioValido.senha){
-        mostarAlerta("E-mail ou senha inválidos");
+    }else if(email.toLowerCase() !== usuarioValido.email ||
+             senha !== usuarioValido.senha){
+        exibirAlerta("E-mail ou senha inválidos");
         return;
     }
 
